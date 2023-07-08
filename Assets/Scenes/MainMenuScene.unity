@@ -344,6 +344,10 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7620303502923133921, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 206.66669
+      objectReference: {fileID: 0}
     - target: {fileID: 8062070606815424440, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
       propertyPath: m_Name
       value: MainMenuCanvas
@@ -435,5 +439,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8235239287766997725, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1816342351}
   m_SourcePrefab: {fileID: 100100000, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
+--- !u!1 &1816342350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8235239287766997725, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
+  m_PrefabInstance: {fileID: 1816342349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1816342351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816342350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d938671c485cab94eace3b31bdd07b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: 
+  levelToLoad:
+    sceneAsset: {fileID: 0}
+    scenePath: 
+  levelNameText: {fileID: 0}

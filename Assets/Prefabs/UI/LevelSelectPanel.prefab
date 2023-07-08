@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1823755131348343260}
+  - component: {fileID: 5407604376190928373}
   - component: {fileID: 2021705268306882664}
   - component: {fileID: 3922520685808811171}
   m_Layer: 5
@@ -40,6 +41,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5407604376190928373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200116100405719264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d938671c485cab94eace3b31bdd07b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Level 1
+  levelToLoad:
+    sceneAsset: {fileID: 102900000, guid: 48ddfe5df164a584e98aad78ede8b142, type: 3}
+    scenePath: Assets/Scenes/TilemapPlayground.unity
+  levelNameText: {fileID: 1564836270480632032}
 --- !u!222 &2021705268306882664
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -469,4 +487,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1717074627436650969}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5407604376190928373}
+        m_TargetAssemblyTypeName: LevelSelectPanelScript, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
