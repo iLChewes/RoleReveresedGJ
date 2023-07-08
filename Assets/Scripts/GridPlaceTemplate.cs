@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Pathfinding;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,8 +13,14 @@ public class GridPlaceTemplate : MonoBehaviour
     [SerializeField] private GameObject objectToSpawn;
     [SerializeField] private TilePlaceTemplate spawnTemplate;
 
-    private List<TilePlaceTemplate> spawnTemplateList = new List<TilePlaceTemplate>();
+    public LayerMask layerMask;
 
+    public GameObject Player;
+    public GameObject chest;
+
+    private List<TilePlaceTemplate> spawnTemplateList = new List<TilePlaceTemplate>();
+    private Vector2 lastPos = Vector2.zero;
+    private bool pathExists = true;
 
     // Start is called before the first frame update
     void Start()
@@ -30,44 +37,57 @@ public class GridPlaceTemplate : MonoBehaviour
     {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        float closestX = Mathf.Round(worldPosition.x);
-        float closestY = Mathf.Round(worldPosition.y);
+        Vector2 closest = new Vector2(Mathf.Round(worldPosition.x), Mathf.Round(worldPosition.y));
+
+        if(lastPos != closest)
+        {
+            lastPos = closest;
+
+            for(int w = 0; w < Width; w++)
+            {
+                float xValue = lastPos.x + w;
+                for(int h = 0; h < Height; h++)
+                {
+                    float yValue = lastPos.y + h;
+                    int index = w + (h * Width);
+                    var template = spawnTemplateList.ElementAt(index);
+                    var newPosition = new Vector2(xValue+0.5f, yValue+0.5f);
+                    template.transform.position = newPosition;
+                }
+            }
+            
+            AstarPath.active.Scan();
+            
+            GraphNode node1 = AstarPath.active.GetNearest(Player.transform.position, NNConstraint.Default).node;
+            
+            GraphNode node2 = AstarPath.active.GetNearest(chest.transform.position, NNConstraint.Default).node;
+            
+            pathExists = PathUtilities.IsPathPossible(node1, node2);
+            
+        }
 
         bool canGroupPlace = true;
 
-        for(int w = 0; w < Width; w++)
+        foreach(var template in spawnTemplateList)
         {
-            float xValue = closestX + w;
-            for(int h = 0; h < Height; h++)
+            if(!pathExists)
             {
-                float yValue = closestY + h;
-                int index = w + (h * Width);
-                var template = spawnTemplateList.ElementAt(index);
-                var newPosition = new Vector2(xValue+0.5f, yValue+0.5f);
-                template.transform.position = newPosition;
-                
-                RaycastHit2D hit = Physics2D.Raycast(newPosition, Vector2.zero);
-               
-                if(hit)
-                {
-                    canGroupPlace = false;
-                    template.CanPlace = false;
-                }
-                else
-                {
-                    template.CanPlace = true;
-                }
-
-                template.CanGroupPlace = canGroupPlace;
+                template.CanPlace = false;
+                continue;                
+            }
+            RaycastHit2D hit = Physics2D.Raycast(template.transform.position, Vector2.zero, 10.0f, layerMask);
+            if(hit)
+            {
+                canGroupPlace = false;
+                template.CanPlace = false;
+            }
+            else
+            {
+                template.CanPlace = true;
             }
         }
 
-        foreach(TilePlaceTemplate template in spawnTemplateList)
-        {
-            template.CanGroupPlace = canGroupPlace;
-        }
-
-        if(canGroupPlace && Input.GetMouseButtonDown(0))
+        if(canGroupPlace && Input.GetMouseButtonDown(0) && pathExists)
         {
             SpawnObject();
         }

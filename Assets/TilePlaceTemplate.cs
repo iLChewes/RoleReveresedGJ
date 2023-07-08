@@ -9,7 +9,6 @@ public class TilePlaceTemplate : MonoBehaviour
     [SerializeField] private GameObject xIcon;
 
     public bool CanPlace = true;
-    public bool CanGroupPlace = true;
     
     private SpriteRenderer spriteRenderer;
     private Material material;
@@ -24,7 +23,7 @@ public class TilePlaceTemplate : MonoBehaviour
 
     void Update()
     {
-        material.color = CanGroupPlace ? canPlaceColor : canNotPlaceColor;
+        material.color = CanPlace ? canPlaceColor : canNotPlaceColor;
         xIcon.SetActive(!CanPlace);
     }
 }
