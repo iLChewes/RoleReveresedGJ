@@ -16,10 +16,10 @@ public class AudioHandler : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            OnPlayBuildAction();
-        }
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     OnPlayBuildAction();
+        // }
     }
 
     public void OnPlayButtonAction()
