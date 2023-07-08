@@ -24,6 +24,7 @@ public class ThiefAI : MonoBehaviour
 
     public void OnStartRun()
     {
+        Debug.Log("Theif Start run");
         OnRunStarted?.Invoke();
         dust.Play();
         seeker.StartPath(transform.position, goal.position);
