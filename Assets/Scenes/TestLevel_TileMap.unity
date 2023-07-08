@@ -2274,13 +2274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff213f3e77f6954ab3a33b298977a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Width: 1
-  Height: 1
-  objectToSpawn: {fileID: 1305417275687553719, guid: a113d899855eff94a8dbb4ffbd40e892, type: 3}
-  spawnTemplate: {fileID: -5738321155312902465, guid: e69a04f5c72bdf6458a2738db0e1d77c, type: 3}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 8
+  spawnableObject: {fileID: 4471651600978526627, guid: 6dda7edec71a0f942b2f89a5f177b723, type: 3}
   Player: {fileID: 878340687}
   chest: {fileID: 260395707}
 --- !u!4 &1281318511
