@@ -12,19 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19cefa3bf552f94390d1c272b19ea6e, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: 
-  bufferPresets:
+  lightmapPresets:
     list:
     - name: Default
-      sortingLayer:
-        name: Default
-        Order: 0
-      darknessColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
-      lightingResolution: 1
+      type: 0
+      hdr: 1
+      darknessColor: {r: 0, g: 0, b: 0, a: 1}
+      depth: -100
+      resolution: 1
       dayLayers:
-        list: []
+        list:
+        - id: 0
+          type: 0
+          sorting: 0
       lightLayers:
         list:
-        - layer: 0
+        - id: 0
           type: 0
           sorting: 0
   lightPresets:
@@ -38,8 +41,8 @@ MonoBehaviour:
           sortingIgnore: 0
           shadowEffect: 0
           shadowEffectLayer: 0
-          maskEffect: 0
-          maskEffectDistance: 1
+          maskLit: 0
+          maskLitDistance: 1
   eventPresets:
     list:
     - name: Disabled
@@ -51,20 +54,17 @@ MonoBehaviour:
         list:
         - layerID: 0
   qualitySettings:
-    HDR: 1
     lightTextureSize: 1
     lightEffectTextureSize: 1
     lightFilterMode: 1
+    lightmapFilterMode: 1
     updateMethod: 0
     coreAxis: 0
     projection: 0
   dayLightingSettings:
-    alpha: 1
     direction: 270
+    ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     height: 1
-    softness:
-      enable: 1
-      intensity: 0.5
     bumpMap:
       height: 1
       strength: 1

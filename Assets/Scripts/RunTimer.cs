@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -48,6 +49,6 @@ public class RunTimer : MonoBehaviour
 
     private void SetTimeField()
     {
-        timeText.text = currentTime.ToString();
+        timeText.text = String.Format("{0:0.00}", currentTime);
     }
 }
