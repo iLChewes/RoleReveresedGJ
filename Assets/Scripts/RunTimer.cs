@@ -26,6 +26,7 @@ public class RunTimer : MonoBehaviour
 
     private void StartTimer()
     {
+        AstarPath.active.Scan();
         currentTime = 0;
         Debug.Log("Timer S");
         StartCoroutine(nameof(Timer_Courtine));
