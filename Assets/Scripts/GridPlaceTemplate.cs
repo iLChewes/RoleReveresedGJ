@@ -37,7 +37,12 @@ public class GridPlaceTemplate : MonoBehaviour
     {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector2 closest = new Vector2(Mathf.Round(worldPosition.x), Mathf.Round(worldPosition.y));
+        GraphNode closestNode = AstarPath.active.GetNearest(worldPosition, NNConstraint.None).node;
+
+        Int3 closestInt = closestNode.position;
+        Vector2 closest = (Vector3)closestInt;
+        
+        
 
         if(lastPos != closest)
         {
@@ -45,21 +50,36 @@ public class GridPlaceTemplate : MonoBehaviour
 
             for(int w = 0; w < Width; w++)
             {
-                float xValue = lastPos.x + w;
+                int offsetX = Width / 2;
+                int actualW = w + offsetX;
+                
+                float xValue = lastPos.x + actualW;
                 for(int h = 0; h < Height; h++)
                 {
-                    float yValue = lastPos.y + h;
-                    int index = w + (h * Width);
-                    var template = spawnTemplateList.ElementAt(index);
-                    var newPosition = new Vector2(xValue+0.5f, yValue+0.5f);
-                    template.transform.position = newPosition;
+                    
+                    int offsetH = Height / 2;
+                    int actualH = w + offsetH;
+
+                    float yValue = lastPos.y + actualH;
+
+                    if(w == 0 && h == 0)
+                    {
+                        int index = w + (h * Width);
+                        var template = spawnTemplateList.ElementAt(index);
+                        var newPosition = closest;
+                        template.transform.position = newPosition;
+                    }
+                    
+                    // int index = w + (h * Width);
+                    // var template = spawnTemplateList.ElementAt(index);
+                    // var newPosition = new Vector2(xValue, yValue);
+                    // template.transform.position = newPosition;
                 }
             }
             
             AstarPath.active.Scan();
             
             GraphNode node1 = AstarPath.active.GetNearest(Player.transform.position, NNConstraint.Default).node;
-            
             GraphNode node2 = AstarPath.active.GetNearest(chest.transform.position, NNConstraint.Default).node;
             
             pathExists = PathUtilities.IsPathPossible(node1, node2);
