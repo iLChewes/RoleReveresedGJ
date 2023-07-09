@@ -1706,12 +1706,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1286675300941667839, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
       propertyPath: levelToLoad.scenePath
-      value: Assets/Scenes/TestLevel_TileMap_Christoph.unity
+      value: Assets/Scenes/Level1.unity
       objectReference: {fileID: 0}
     - target: {fileID: 1286675300941667839, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
       propertyPath: levelToLoad.sceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: 1b52fcf063de1e147b6b7c43114cae76, type: 3}
+      objectReference: {fileID: 102900000, guid: 0dc6e70fd61c58b41a0a2c9f194d8048, type: 3}
     - target: {fileID: 2156710218851310999, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1784,6 +1784,14 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: -187.94543
       objectReference: {fileID: 0}
+    - target: {fileID: 5083047446411950303, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
+      propertyPath: levelToLoad.scenePath
+      value: Assets/Scenes/Level3.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083047446411950303, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
+      propertyPath: levelToLoad.sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 4dc7a108d8fbda24d8ab38f806fbff7e, type: 3}
     - target: {fileID: 6439605840351048201, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -24.789062
@@ -1792,6 +1800,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1262640240}
+    - target: {fileID: 7016135313161143085, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
+      propertyPath: levelToLoad.scenePath
+      value: Assets/Scenes/Level2.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 7016135313161143085, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
+      propertyPath: levelToLoad.sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 9d73dbdc36fbd9c4781671a784e82a3e, type: 3}
     - target: {fileID: 7079502483760749832, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

@@ -39,7 +39,7 @@ public class Chest : MonoBehaviour
             var coin = Instantiate(coinPrefab, spawnPosition.position, Quaternion.identity);
             var coinRigi = coin.GetComponent<Rigidbody2D>();
 
-            float speed = 600;
+            float speed = 450;
             coinRigi.isKinematic = false;
             Vector3 force = new Vector3(UnityEngine.Random.Range(-0.25f, 0.25f), 1, 0);
             force = new Vector3(force.x, 1, force.z);
