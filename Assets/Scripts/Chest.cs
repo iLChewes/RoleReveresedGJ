@@ -9,11 +9,21 @@ public class Chest : MonoBehaviour
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private TMP_Text coinText;
+    [SerializeField] private TMP_Text coinPlayerText;
+    [SerializeField] private GameObject coinIcon;
+    [SerializeField] private Transform thiefStartPosition;
+    [SerializeField] private ToggleStartButton toggleButton;
+    [SerializeField] private TimeTable timeTable;
+    [SerializeField] private RunTimer runTimer;
+    [SerializeField] private RoundManager roundManager;
+
+    private ThiefAI thiefAI;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<ThiefAI>(out ThiefAI thiefAi))
         {
+            this.thiefAI = thiefAi;
             thiefAi.OnReachedGoal();
             StartCoroutine(nameof(SpawnCoins_Courtine));
         }
@@ -23,7 +33,7 @@ public class Chest : MonoBehaviour
     {
         var currentCoins = Int32.Parse(coinText.text);
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 10; i++)
         {
             var coin = Instantiate(coinPrefab, spawnPosition.position, Quaternion.identity);
             var coinRigi = coin.GetComponent<Rigidbody2D>();
@@ -34,11 +44,80 @@ public class Chest : MonoBehaviour
             force = new Vector3(force.x, 1, force.z);
             coinRigi.AddForce(force * speed);
 
-            currentCoins++;
+            currentCoins--;
             coinText.text = currentCoins.ToString();
 
             yield return new WaitForSeconds(0.1f);
         }
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(nameof(SpawnCoinsToUI_Courtine));
+    }
+
+    private IEnumerator SpawnCoinsToUI_Courtine()
+    {
+        var currentCoins = Int32.Parse(coinText.text);
+        Debug.Log(Camera.main.ScreenToWorldPoint(coinIcon.transform.position));
+        for (int i = currentCoins; i > 0; i--)
+        {
+            var coin = Instantiate(coinPrefab, spawnPosition.position, Quaternion.identity);
+            var flyTo = coin.GetComponent<FlyToUI>();
+            
+            flyTo.SetFlyTo(coinIcon);
+            flyTo.SetCoinText(coinPlayerText);
+            flyTo.StartFlying();
+
+            currentCoins--;
+            coinText.text = currentCoins.ToString();
+
+            yield return new WaitForSeconds(0.1f);
+        }
+        yield return new WaitForSeconds(1f);
+
+
+        if (!roundManager.IsLastRound())
+        {
+            StartCoroutine(nameof(MoveThiefToStartPosition_Courtine));
+        }
+        else
+        {
+
+        }
+    }
+
+    private IEnumerator MoveThiefToStartPosition_Courtine()
+    {
+        thiefAI.enabled = false;
+        var thiefGO = thiefAI.gameObject;
+        var thiefCollider = thiefGO.GetComponent<CircleCollider2D>();
+        thiefCollider.enabled = false;
+
+        var worldPosition = thiefStartPosition.position;
+
+        while (Vector3.Distance(thiefGO.transform.position, worldPosition) > 0.001f)
+        {
+            var step = 10 * Time.deltaTime;
+            thiefGO.transform.position = Vector3.MoveTowards(thiefGO.transform.position, worldPosition, step);
+            yield return null;
+        }
+
+        thiefAI.enabled = true;
+        thiefCollider.enabled = true ;
+
+        ResetGold();
+        toggleButton.ActivateButton();
+        timeTable.CreateTimeCart(roundManager.GetCurrentRound(), runTimer.GetCurrentTime());
+        roundManager.NextRound();
+
+        if (roundManager.IsLastRound())
+        {
+            // Show Text Last Round
+        }
+
+    }
+
+    private void ResetGold()
+    {
+        coinText.text = "40";
     }
 
 }

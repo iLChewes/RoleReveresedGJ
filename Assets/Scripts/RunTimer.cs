@@ -24,6 +24,11 @@ public class RunTimer : MonoBehaviour
         thiefAi.OnRunFinished -= EndTimer;
     }
 
+    public float GetCurrentTime()
+    {
+        return currentTime;
+    }
+
     private void StartTimer()
     {
         AstarPath.active.Scan();

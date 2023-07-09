@@ -2,6 +2,7 @@ using Pathfinding;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class ThiefAI : MonoBehaviour
@@ -12,6 +13,7 @@ public class ThiefAI : MonoBehaviour
 
     private Seeker seeker;
     private AudioSource audioSource;
+    private AIPath aiPath;
 
     public event Action OnRunStarted;
     public event Action OnRunFinished;
@@ -19,6 +21,7 @@ public class ThiefAI : MonoBehaviour
     private void Awake()
     {
         seeker = GetComponent<Seeker>();
+        aiPath = GetComponent<AIPath>();
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -27,6 +30,7 @@ public class ThiefAI : MonoBehaviour
         Debug.Log("Theif Start run");
         OnRunStarted?.Invoke();
         dust.Play();
+        aiPath.canMove = true;
         seeker.StartPath(transform.position, goal.position);
         StartCoroutine(nameof(FoodSteps_Courtine));
     }
@@ -35,6 +39,7 @@ public class ThiefAI : MonoBehaviour
     {
         OnRunFinished?.Invoke();
         dust.Stop();
+        aiPath.canMove = false;
         StopCoroutine(nameof(FoodSteps_Courtine));
     }
 

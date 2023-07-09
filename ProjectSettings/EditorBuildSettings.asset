@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestLevel.unity
     guid: 7e8c736a1340eda4e9e95d4ed5c5fac9
+  - enabled: 1
+    path: Assets/Scenes/TestLevel_TileMap_Christoph.unity
+    guid: 1b52fcf063de1e147b6b7c43114cae76
   m_configObjects: {}
