@@ -1399,6 +1399,10 @@ PrefabInstance:
       objectReference: {fileID: 336454034}
     - target: {fileID: 6404395502360215679, guid: 77dfa1877c659cf458b0226f0c205f40, type: 3}
       propertyPath: CoinBuildupPerSecond
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6404395502360215679, guid: 77dfa1877c659cf458b0226f0c205f40, type: 3}
+      propertyPath: ThiefStealAmountPerLevel
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7943504945908889399, guid: 77dfa1877c659cf458b0226f0c205f40, type: 3}
@@ -1725,7 +1729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5650443501294276294, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: goldCost
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5650443501294276294, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: obstacleHolder
