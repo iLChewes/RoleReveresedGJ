@@ -12,9 +12,13 @@ public class ThiefAI : MonoBehaviour
     [SerializeField] private AudioClip[] foodStepSounds;
     [SerializeField] private float maxSpeed;
 
+    [SerializeField] private float powerKnockback = 40f;
+    [SerializeField] private float timeWhen = 1f;
+
     private Seeker seeker;
     private AudioSource audioSource;
     private AIPath aiPath;
+    private Rigidbody2D rigi2D;
 
     public event Action OnRunStarted;
     public event Action OnRunFinished;
@@ -24,8 +28,23 @@ public class ThiefAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         aiPath = GetComponent<AIPath>();
         audioSource = GetComponent<AudioSource>();
+        rigi2D = GetComponent<Rigidbody2D>();
 
         aiPath.maxSpeed = maxSpeed;
+    }
+
+    public void Rückstoß(Vector2 dir)
+    {
+        aiPath.canMove = false;
+        rigi2D.AddForce(dir * powerKnockback, ForceMode2D.Impulse);
+        Invoke(nameof(RunAgain), timeWhen);
+    }
+
+    public void RunAgain()
+    {
+        aiPath.canMove = true;
+        rigi2D.velocity = Vector2.zero;
+        seeker.StartPath(transform.position, goal.position);
     }
 
     public void OnStartRun()
@@ -40,6 +59,7 @@ public class ThiefAI : MonoBehaviour
 
     public void OnReachedGoal()
     {
+        rigi2D.velocity = Vector2.zero;
         OnRunFinished?.Invoke();
         dust.Stop();
         aiPath.canMove = false;
