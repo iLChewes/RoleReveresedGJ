@@ -54,10 +54,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4079533322423947507, guid: 93fc7c817d2a67c4f9ed4f90b19ad690, type: 3}
       propertyPath: m_Name
-      value: ObjectToSpawn
+      value: 2x2 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3516547039342249864, guid: 93fc7c817d2a67c4f9ed4f90b19ad690, type: 3}
+    - {fileID: 6914009453243119546, guid: 93fc7c817d2a67c4f9ed4f90b19ad690, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93fc7c817d2a67c4f9ed4f90b19ad690, type: 3}
