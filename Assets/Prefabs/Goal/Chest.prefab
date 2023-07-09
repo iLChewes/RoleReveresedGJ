@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1111675117249016761}
   - component: {fileID: 8215525277170479481}
   - component: {fileID: 4253070403793555431}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,6 +148,13 @@ MonoBehaviour:
   coinPrefab: {fileID: 1308595074498564276, guid: c838593f080b18d4ab66f6cee9040024, type: 3}
   spawnPosition: {fileID: 1589837295704674393}
   coinText: {fileID: 8639476931635809674}
+  coinPlayerText: {fileID: 0}
+  coinIcon: {fileID: 0}
+  thiefStartPosition: {fileID: 0}
+  toggleButton: {fileID: 0}
+  timeTable: {fileID: 0}
+  runTimer: {fileID: 0}
+  roundManager: {fileID: 0}
 --- !u!1 &3017966339203082859
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +166,7 @@ GameObject:
   - component: {fileID: 1424284800830858581}
   - component: {fileID: 5333962286079765289}
   - component: {fileID: 8715027073630078197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1589837295704674393}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CoinSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6436172367327587525}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +311,7 @@ GameObject:
   - component: {fileID: 562488510294546841}
   - component: {fileID: 5100187094676696764}
   - component: {fileID: 8639476931635809674}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +447,7 @@ GameObject:
   - component: {fileID: 4775743297381374144}
   - component: {fileID: 7779476086438413802}
   - component: {fileID: 735586589690025221}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GoldCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

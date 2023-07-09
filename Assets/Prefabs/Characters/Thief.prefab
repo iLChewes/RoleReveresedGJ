@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5524275985560435858}
   - component: {fileID: 581396400585647903}
   - component: {fileID: 7030744890105663594}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Thief
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2407777539634315595}
   - component: {fileID: 6281420393091634837}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,6 +439,10 @@ PrefabInstance:
     - target: {fileID: 8879393153467087006, guid: 2f3ef5a58dcb3f746b661c9c2e226335, type: 3}
       propertyPath: m_Name
       value: Dust_vfx
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879393153467087006, guid: 2f3ef5a58dcb3f746b661c9c2e226335, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

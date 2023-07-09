@@ -104,8 +104,9 @@ MonoBehaviour:
   xIcon: {fileID: 7435546683204600432}
   layerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 392
   CanPlace: 1
+  pathExists: 1
 --- !u!61 &-8849892174090932958
 BoxCollider2D:
   m_ObjectHideFlags: 0
