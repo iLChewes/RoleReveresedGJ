@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -77,7 +78,19 @@ public class Chest : MonoBehaviour
         }
         else
         {
+            
             timeTable.CreateTimeCart(RoundManager.Instance.GetCurrentRound(), RunTimer.Instance.GetCurrentTime());
+            var timeCarts = TimeTable.Instance.timeCartList;
+
+            var sumTime = timeCarts.Sum(x => x.time);
+
+            var currentHighScore = HighScoreTracker.Instance.GetHighScoreOfLevel(LevelManager.Instance.currentLevel);
+
+            if(sumTime > currentHighScore)
+            {
+                HighScoreTracker.Instance.SetHighScoreLevel(LevelManager.Instance.currentLevel, sumTime);
+            }
+
             ActivateResultScreen();
         }
     }

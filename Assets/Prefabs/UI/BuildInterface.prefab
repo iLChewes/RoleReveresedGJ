@@ -65,7 +65,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: -32.2
+  m_Spacing: 2.57
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -270,6 +270,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4351739330961319360, guid: b5f69a963293a414593f34fae9ca4bb5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988659663346228097, guid: b5f69a963293a414593f34fae9ca4bb5, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814145289729731634, guid: b5f69a963293a414593f34fae9ca4bb5, type: 3}
+      propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

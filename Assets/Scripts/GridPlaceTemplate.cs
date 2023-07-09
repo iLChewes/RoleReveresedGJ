@@ -82,8 +82,7 @@ public class GridPlaceTemplate : MonoBehaviour
         if(spawnTemplate.CanSpawn)
         {
             Instantiate(spawnableObject.actualObject, spawnTemplate.transform.position, spawnTemplate.transform.rotation);
-            obstacleHolder.spawnAmount -= 1;
-            obstacleHolder.SetNewSpawnAmountText();
+            obstacleHolder.RemoveSpawnAmount();
         }
             
     }
