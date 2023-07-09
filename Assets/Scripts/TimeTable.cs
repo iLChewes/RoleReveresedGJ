@@ -6,7 +6,21 @@ public class TimeTable : MonoBehaviour
 {
     [SerializeField] private GameObject timeCartPrefab;
 
-    private List<TimeCart> timeCartList = new List<TimeCart>();
+    public List<TimeCart> timeCartList = new List<TimeCart>();
+
+    public static TimeTable Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     public void CreateTimeCart(int round, float time)
     {
