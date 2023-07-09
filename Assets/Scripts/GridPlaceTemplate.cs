@@ -1,3 +1,4 @@
+using System;
 using Pathfinding;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public class GridPlaceTemplate : MonoBehaviour
 
     private ObstacleHolder obstacleHolder;
 
-    private void OnEnable()
+    private void Start()
     {
         BuildManager.Instance.OnObstacleChanged += SetNewSpawnObject;
     }
@@ -61,6 +62,16 @@ public class GridPlaceTemplate : MonoBehaviour
     void Update()
     {
         if(obstacleHolder == null) { return; }
+
+        if(!obstacleHolder.CanSpawn())
+        {
+            DespawnTempalte();
+            obstacleHolder = null;
+            return;
+        }
+            
+        SpawnTemplate();
+
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         GraphNode closestNode = AstarPath.active.GetNearest(worldPosition, NNConstraint.None).node;
@@ -99,8 +110,7 @@ public class GridPlaceTemplate : MonoBehaviour
         if(spawnTemplate.CanSpawn)
         {
             Instantiate(spawnableObject.actualObject, spawnTemplate.transform.position, spawnTemplate.transform.rotation);
-            obstacleHolder.spawnAmount -= 1;
-            obstacleHolder.SetNewSpawnAmountText();
+            obstacleHolder.RemoveSpawnAmount();
         }
     }
 }

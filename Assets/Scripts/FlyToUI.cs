@@ -8,6 +8,7 @@ using static UnityEngine.GraphicsBuffer;
 public class FlyToUI : MonoBehaviour
 {
     private GameObject flyTo;
+    [SerializeField] private float flySpeed = 20;
 
     public void StartFlying()
     {
@@ -24,7 +25,7 @@ public class FlyToUI : MonoBehaviour
 
         while(Vector3.Distance(transform.position, worldPosition) > 0.001f)
         {
-            var step = 10 * Time.deltaTime;
+            var step = flySpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, worldPosition, step);
             yield return null;
         }

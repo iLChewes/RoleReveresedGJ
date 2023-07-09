@@ -27,10 +27,11 @@ public class ResultScreen : MonoBehaviour
     private IEnumerator SumUpTime()
     {
         spinWheel.Play();
-        float currentTime = 0f;
-        while(currentTime < sumTime)
+        float lerpCounter = 0f;
+        while(lerpCounter < 2.0f)
         {
-            currentTime += 0.02f;
+            lerpCounter += Time.deltaTime;
+            var currentTime = Mathf.Lerp(0, sumTime, lerpCounter / 2.0f);
             if (currentTime >= sumTime)
             {
                 currentTime = sumTime;

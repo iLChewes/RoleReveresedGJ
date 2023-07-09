@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class Chest : MonoBehaviour
     [SerializeField] private TimeTable timeTable;
     [SerializeField] private GameObject lastRoundText;
     [SerializeField] private GameObject resultScreen;
+    [SerializeField] private float CoinSpawnDelay = 0.05f;
 
     private ThiefAI thiefAI;
 
@@ -46,9 +48,9 @@ public class Chest : MonoBehaviour
             currentCoins--;
             coinText.text = currentCoins.ToString();
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(CoinSpawnDelay);
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         StartCoroutine(nameof(SpawnCoinsToUI_Courtine));
     }
 
@@ -66,9 +68,9 @@ public class Chest : MonoBehaviour
             currentCoins--;
             coinText.text = currentCoins.ToString();
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(CoinSpawnDelay);
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.75f);
 
 
         if (!RoundManager.Instance.IsLastRound())
@@ -78,6 +80,17 @@ public class Chest : MonoBehaviour
         else
         {
             timeTable.CreateTimeCart(RoundManager.Instance.GetCurrentRound(), RunTimer.Instance.GetCurrentTime());
+            var timeCarts = TimeTable.Instance.timeCartList;
+
+            var sumTime = timeCarts.Sum(x => x.time);
+
+            var currentHighScore = HighScoreTracker.Instance.GetHighScoreOfLevel(LevelManager.Instance.currentLevel);
+
+            if(sumTime > currentHighScore)
+            {
+                HighScoreTracker.Instance.SetHighScoreLevel(LevelManager.Instance.currentLevel, sumTime);
+            }
+
             ActivateResultScreen();
         }
     }

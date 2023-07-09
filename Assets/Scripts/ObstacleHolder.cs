@@ -9,6 +9,7 @@ public class ObstacleHolder : MonoBehaviour
     [HideInInspector] public int spawnAmount;
 
     [SerializeField] public TMP_Text spawnAmountText;
+    [SerializeField] public GameObject visual;
 
     private void Start()
     {
@@ -19,7 +20,6 @@ public class ObstacleHolder : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("On Enable Obastacle Holder");
         if(RoundManager.Instance)
             RoundManager.Instance.OnRoundFinished += ResetAmount;
     }
@@ -36,7 +36,12 @@ public class ObstacleHolder : MonoBehaviour
 
     public void AddSpawnAmount(int amount)
     {
-        SetSpawnAmount(spawnAmount + amount);
+        SetSpawnAmount( spawnAmount + amount);
+    }
+
+    public void RemoveSpawnAmount()
+    {
+        SetSpawnAmount(spawnAmount - 1);
     }
 
     public void SetAsNewObstacle()
@@ -47,7 +52,13 @@ public class ObstacleHolder : MonoBehaviour
     public void SetSpawnAmount(int amount)
     {
         spawnAmount = amount;
+        TryUpdateViusal();
         SetNewSpawnAmountText();
+    }
+
+    public void TryUpdateViusal()
+    {
+        visual.SetActive(spawnAmount != 0);
     }
 
     public void SetNewSpawnAmountText()
