@@ -114,7 +114,7 @@ public class Chest : MonoBehaviour
     private IEnumerator SpawnCoinsToUI_Courtine()
     {
         var currentCoins = Int32.Parse(coinText.text);
-        for (int i = currentCoins; i > 0; i--)
+        for (int i = currentCoins; i > 0; i-= 10)
         {
             var coin = Instantiate(coinPrefab, spawnPosition.position, Quaternion.identity);
             var flyTo = coin.GetComponent<FlyToUI>();
@@ -122,9 +122,21 @@ public class Chest : MonoBehaviour
             flyTo.SetFlyTo(coinIcon);
             flyTo.StartFlying();
 
-            currentCoins--;
-            coinText.text = currentCoins.ToString();
+            // currentCoins--;
 
+            if(i < 10)
+            {
+                currentCoins -= i;
+                GoldManager.Instance.AddGold(i);
+            }
+            else
+            {
+                currentCoins -= 10;
+                GoldManager.Instance.AddGold(10);
+            }
+
+            coinText.text = currentCoins.ToString();
+    
             yield return new WaitForSeconds(CoinSpawnDelay);
         }
         yield return new WaitForSeconds(0.75f);

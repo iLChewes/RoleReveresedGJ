@@ -679,6 +679,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1262640240}
+    - target: {fileID: 4591182298349685814, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
+      propertyPath: levelToLoad.scenePath
+      value: Assets/Scenes/Level3.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591182298349685814, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
+      propertyPath: levelToLoad.sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 4dc7a108d8fbda24d8ab38f806fbff7e, type: 3}
     - target: {fileID: 4612479777052793751, guid: a883299e0d437314aa4b53f58bf84e74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

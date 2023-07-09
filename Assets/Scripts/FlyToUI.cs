@@ -30,7 +30,7 @@ public class FlyToUI : MonoBehaviour
             yield return null;
         }
 
-        GoldManager.Instance.AddGold(1);
+        // GoldManager.Instance.AddGold(1);
         Destroy(gameObject);
     }
 
