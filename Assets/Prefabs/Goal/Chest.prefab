@@ -145,16 +145,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb77a4d42d7f744781c6c6fea1532fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ThiefStealAmount: 25
+  CoinBuildupPerSecond: 5
+  CoinSpawnDelay: 0.05
   coinPrefab: {fileID: 1308595074498564276, guid: c838593f080b18d4ab66f6cee9040024, type: 3}
   spawnPosition: {fileID: 1589837295704674393}
   coinText: {fileID: 8639476931635809674}
-  coinPlayerText: {fileID: 0}
   coinIcon: {fileID: 0}
   thiefStartPosition: {fileID: 0}
   toggleButton: {fileID: 0}
   timeTable: {fileID: 0}
-  runTimer: {fileID: 0}
-  roundManager: {fileID: 0}
+  lastRoundText: {fileID: 0}
+  resultScreen: {fileID: 0}
 --- !u!1 &3017966339203082859
 GameObject:
   m_ObjectHideFlags: 0

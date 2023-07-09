@@ -775,6 +775,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4351739330961319360, guid: b5f69a963293a414593f34fae9ca4bb5, type: 3}
   m_PrefabInstance: {fileID: 1663177722}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1663177724 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1254859044072439862, guid: b5f69a963293a414593f34fae9ca4bb5, type: 3}
+  m_PrefabInstance: {fileID: 1663177722}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046d22f89b3460d4a9d5ccc4692fd133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1754839919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,7 +1120,7 @@ PrefabInstance:
       objectReference: {fileID: 336454034}
     - target: {fileID: 6404395502360215679, guid: 77dfa1877c659cf458b0226f0c205f40, type: 3}
       propertyPath: CoinBuildupPerSecond
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7943504945908889399, guid: 77dfa1877c659cf458b0226f0c205f40, type: 3}
       propertyPath: m_RootOrder
@@ -1417,6 +1428,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5650443501294276294, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: obstacleHolder
+      value: 
+      objectReference: {fileID: 1663177724}
     - target: {fileID: 6796082227529379132, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: thiefAI
       value: 
@@ -1425,6 +1440,22 @@ PrefabInstance:
       propertyPath: audioHandler
       value: 
       objectReference: {fileID: 919789106}
+    - target: {fileID: 6812923344749891038, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6812923344749891038, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6812923344749891038, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6812923344749891038, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7219829713042778224, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1641,6 +1672,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 878340687}
+    - target: {fileID: 8203478604745542884, guid: a888f903af70eda41b8ffbf07847c818, type: 3}
+      propertyPath: maxRound
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8203478604745542884, guid: a888f903af70eda41b8ffbf07847c818, type: 3}
       propertyPath: roundText
       value: 

@@ -193,6 +193,6 @@ public class Chest : MonoBehaviour
 
     private void ResetGold()
     {
-        coinText.text = "40";
+        coinText.text = "0";
     }
 }
