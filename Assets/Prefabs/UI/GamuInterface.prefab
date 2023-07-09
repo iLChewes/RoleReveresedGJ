@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 4402385971431880183}
   - component: {fileID: 8608649649404263848}
   - component: {fileID: 2502797823074816881}
-  - component: {fileID: 8822491363144021003}
+  - component: {fileID: 8501410094372301038}
   m_Layer: 5
   m_Name: Btn_OtherButton_Circle01_n (1)
   m_TagString: Untagged
@@ -1192,9 +1192,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8822491363144021003}
-        m_TargetAssemblyTypeName: LevelSelectPanelScript, Assembly-CSharp
-        m_MethodName: LoadLevel
+      - m_Target: {fileID: 8501410094372301038}
+        m_TargetAssemblyTypeName: ReloadButton, Assembly-CSharp
+        m_MethodName: Reload
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1204,7 +1204,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8822491363144021003
+--- !u!114 &8501410094372301038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1213,14 +1213,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6466750726983831045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d938671c485cab94eace3b31bdd07b8e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a666782bb5cdc946887c719fee400fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 
-  levelToLoad:
-    sceneAsset: {fileID: 102900000, guid: 1b52fcf063de1e147b6b7c43114cae76, type: 3}
-    scenePath: Assets/Scenes/TestLevel_TileMap_Christoph.unity
-  levelNameText: {fileID: 0}
 --- !u!1 &7233593571231608228
 GameObject:
   m_ObjectHideFlags: 0

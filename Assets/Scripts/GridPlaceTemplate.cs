@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using Pathfinding;
-using UnityEditor;
 using UnityEngine;
 
 public class GridPlaceTemplate : MonoBehaviour
@@ -18,13 +14,6 @@ public class GridPlaceTemplate : MonoBehaviour
 
     private ObstacleHolder obstacleHolder;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //spawnTemplate = Instantiate(spawnableObject.spawnTemplate);
-    }
-
     private void OnEnable()
     {
         BuildManager.Instance.OnObstacleChanged += SetNewSpawnObject;
@@ -38,6 +27,11 @@ public class GridPlaceTemplate : MonoBehaviour
     public void SetNewSpawnObject(ObstacleHolder newObstacle)
     {
         obstacleHolder = newObstacle;
+        if(spawnTemplate)
+        {
+            DespawnTempalte();
+        }
+        
         if(obstacleHolder == null)
         {
             spawnTemplate = null;
@@ -45,33 +39,56 @@ public class GridPlaceTemplate : MonoBehaviour
         }
         else
         {
-            spawnTemplate = Instantiate(obstacleHolder.spawnableObject.spawnTemplate);
+            SpawnTemplate();
             spawnableObject = obstacleHolder.spawnableObject;
         }    
+    }
+
+    void SpawnTemplate()
+    {
+        if(!spawnTemplate)
+            spawnTemplate = Instantiate(obstacleHolder.spawnableObject.spawnTemplate);
+    }
+
+    void DespawnTempalte()
+    {
+        if(spawnTemplate)
+            Destroy(spawnTemplate.gameObject);
+        spawnTemplate = null;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(obstacleHolder == null) { return; }
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         GraphNode closestNode = AstarPath.active.GetNearest(worldPosition, NNConstraint.None).node;
 
         Int3 closestInt = closestNode.position;
+        
+        
         Vector2 closest = (Vector3)closestInt;
 
-        if(lastPos != closest)
+        bool toFarFromGrid = (worldPosition - closest).magnitude > 2.0f;
+        if(toFarFromGrid)
+        {
+            DespawnTempalte();
+        }
+        else
+        {
+            SpawnTemplate();
+        }
+
+        if(lastPos != closest && spawnTemplate)
         {
             lastPos = closest;
-
             var newPosition = closest;
             spawnTemplate.transform.position = newPosition;
-            
             spawnTemplate.UpdatePath(Player.transform.position, chest.transform.position);
         }
 
-        if(spawnTemplate.CanSpawn && Input.GetMouseButtonDown(0) && obstacleHolder.CanSpawn())
+        if(!toFarFromGrid && spawnTemplate.CanSpawn && Input.GetMouseButtonDown(0) && obstacleHolder.CanSpawn())
         {
             SpawnObject();
         }
@@ -85,6 +102,5 @@ public class GridPlaceTemplate : MonoBehaviour
             obstacleHolder.spawnAmount -= 1;
             obstacleHolder.SetNewSpawnAmountText();
         }
-            
     }
 }

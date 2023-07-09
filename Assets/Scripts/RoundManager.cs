@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,6 +13,8 @@ public class RoundManager : MonoBehaviour
 
 
     public static RoundManager Instance { get; private set; }
+    
+    public event Action OnRoundFinished;
 
     private void Awake()
     {
@@ -42,7 +45,9 @@ public class RoundManager : MonoBehaviour
 
     public void NextRound()
     {
+        Debug.Log("NextRound called");
         currentRound++;
+        OnRoundFinished?.Invoke();
         if(currentRound > maxRound) { currentRound = maxRound; }
 
         SetRoundText();

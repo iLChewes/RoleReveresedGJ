@@ -112,7 +112,7 @@ RectTransform:
   m_Children:
   - {fileID: 1539014531035379898}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnableObject: {fileID: 4471651600978526627, guid: 6dda7edec71a0f942b2f89a5f177b723, type: 3}
+  initial_spawnAmount: 5
   spawnAmount: 5
   spawnAmountText: {fileID: 5169832274626618471}
 --- !u!1 &5522904710220251931
