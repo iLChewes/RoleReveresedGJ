@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 4471651600978526627, guid: 5dd6fbbb497562644aa80ee6bd08a24e, type: 3}
     - target: {fileID: 1254859044072439862, guid: b5f69a963293a414593f34fae9ca4bb5, type: 3}
       propertyPath: initial_spawnAmount
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2065580967023631696, guid: b5f69a963293a414593f34fae9ca4bb5, type: 3}
       propertyPath: m_Name
@@ -649,6 +649,10 @@ PrefabInstance:
       propertyPath: spawnableObject
       value: 
       objectReference: {fileID: 4471651600978526627, guid: 035ae426246d04a4ca5f7a1d330eeb9a, type: 3}
+    - target: {fileID: 1254859044072439862, guid: b5f69a963293a414593f34fae9ca4bb5, type: 3}
+      propertyPath: initial_spawnAmount
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2065580967023631696, guid: b5f69a963293a414593f34fae9ca4bb5, type: 3}
       propertyPath: m_Name
       value: BuildButton (1)
@@ -1320,6 +1324,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1538190668611046740, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: goldCost
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 1670488292117874629, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1427,6 +1435,10 @@ PrefabInstance:
     - target: {fileID: 4622458029215427532, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5650443501294276294, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: goldCost
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5650443501294276294, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: obstacleHolder
@@ -1674,7 +1686,7 @@ PrefabInstance:
       objectReference: {fileID: 878340687}
     - target: {fileID: 8203478604745542884, guid: a888f903af70eda41b8ffbf07847c818, type: 3}
       propertyPath: maxRound
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8203478604745542884, guid: a888f903af70eda41b8ffbf07847c818, type: 3}
       propertyPath: roundText

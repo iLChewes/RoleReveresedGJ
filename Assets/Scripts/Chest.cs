@@ -10,6 +10,7 @@ public class Chest : MonoBehaviour
 
     [Header("Params")]
     [SerializeField] private int ThiefStealAmount = 10;
+    [SerializeField] private int ThiefStealAmountPerLevel = 5;
     [SerializeField] private int CoinBuildupPerSecond = 2;
     [SerializeField] private float CoinSpawnDelay = 0.05f;
 
@@ -85,6 +86,8 @@ public class Chest : MonoBehaviour
     {
         var currentCoins = Int32.Parse(coinText.text);
 
+        int actualStealAmount = ThiefStealAmount + ThiefStealAmountPerLevel * (RoundManager.Instance.GetCurrentRound()-1);
+        
         for (int i = 0; i < ThiefStealAmount; i++)
         {
             var coin = Instantiate(coinPrefab, spawnPosition.position, Quaternion.identity);
