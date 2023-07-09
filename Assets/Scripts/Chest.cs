@@ -7,6 +7,13 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
+
+    [Header("Params")]
+    [SerializeField] private int ThiefStealAmount = 10;
+    [SerializeField] private int CoinBuildupPerSecond = 2;
+    [SerializeField] private float CoinSpawnDelay = 0.05f;
+
+    [Header("Setup")]
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private TMP_Text coinText;
@@ -16,9 +23,53 @@ public class Chest : MonoBehaviour
     [SerializeField] private TimeTable timeTable;
     [SerializeField] private GameObject lastRoundText;
     [SerializeField] private GameObject resultScreen;
-    [SerializeField] private float CoinSpawnDelay = 0.05f;
+
 
     private ThiefAI thiefAI;
+
+    private void Start()
+    {
+        // Forgive me lord for I have sinned
+        thiefAI = RunTimer.Instance.thiefAi;
+        thiefAI.OnRunStarted += StartCoinCountUp;
+        thiefAI.OnRunFinished += StopCoinCountup;
+
+    }
+
+    private void OnDisable()
+    {
+        thiefAI.OnRunStarted -= StartCoinCountUp;
+        thiefAI.OnRunFinished -= StopCoinCountup;
+    }
+
+    private Coroutine coin_earn_coroutine;
+    
+    private void StopCoinCountup()
+    {
+        if(coin_earn_coroutine != null)
+            StopCoroutine(coin_earn_coroutine);
+    }
+
+    private void StartCoinCountUp()
+    {
+        if(coin_earn_coroutine != null)
+            StopCoroutine(coin_earn_coroutine);
+        
+        coin_earn_coroutine = StartCoroutine(nameof(CoinEarn_Coroutine));
+    }
+
+    private IEnumerator CoinEarn_Coroutine()
+    {
+        float coins = 0;
+
+        while(true)
+        {
+            coins += CoinBuildupPerSecond * Time.deltaTime;
+            
+            coinText.text = ((int) coins).ToString();
+            yield return null;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -34,7 +85,7 @@ public class Chest : MonoBehaviour
     {
         var currentCoins = Int32.Parse(coinText.text);
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < ThiefStealAmount; i++)
         {
             var coin = Instantiate(coinPrefab, spawnPosition.position, Quaternion.identity);
             var coinRigi = coin.GetComponent<Rigidbody2D>();
@@ -47,6 +98,9 @@ public class Chest : MonoBehaviour
 
             currentCoins--;
             coinText.text = currentCoins.ToString();
+            
+            if(currentCoins == 0)
+                break;
 
             yield return new WaitForSeconds(CoinSpawnDelay);
         }
@@ -141,5 +195,4 @@ public class Chest : MonoBehaviour
     {
         coinText.text = "40";
     }
-
 }

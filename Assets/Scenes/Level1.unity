@@ -953,6 +953,10 @@ PrefabInstance:
       propertyPath: lastRoundText
       value: 
       objectReference: {fileID: 336454034}
+    - target: {fileID: 6404395502360215679, guid: 77dfa1877c659cf458b0226f0c205f40, type: 3}
+      propertyPath: CoinBuildupPerSecond
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7943504945908889399, guid: 77dfa1877c659cf458b0226f0c205f40, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1134,6 +1138,22 @@ PrefabInstance:
     - target: {fileID: 733728572901133173, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: m_Name
       value: -----UI-----
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493758858862240733, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493758858862240733, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493758858862240733, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493758858862240733, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1670488292117874629, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

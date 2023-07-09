@@ -8,7 +8,7 @@ using UnityEngine;
 public class RunTimer : MonoBehaviour
 {
     [SerializeField] private TMP_Text timeText;
-    [SerializeField] private ThiefAI thiefAi;
+    [SerializeField] public ThiefAI thiefAi;
 
     private float currentTime;
 
