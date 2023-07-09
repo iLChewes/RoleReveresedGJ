@@ -50,11 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1427150769847370736, guid: 2b8edb1c0878d914c8584466299a2e0f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.5
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 1427150769847370736, guid: 2b8edb1c0878d914c8584466299a2e0f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.5
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 1427150769847370736, guid: 2b8edb1c0878d914c8584466299a2e0f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -87,6 +87,18 @@ PrefabInstance:
     - target: {fileID: 1427150769847370736, guid: 2b8edb1c0878d914c8584466299a2e0f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524275985560435858, guid: 2b8edb1c0878d914c8584466299a2e0f, type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524275985560435858, guid: 2b8edb1c0878d914c8584466299a2e0f, type: 3}
+      propertyPath: timeWhen
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524275985560435858, guid: 2b8edb1c0878d914c8584466299a2e0f, type: 3}
+      propertyPath: powerKnockback
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
