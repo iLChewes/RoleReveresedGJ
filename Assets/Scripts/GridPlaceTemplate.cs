@@ -15,8 +15,11 @@ public class GridPlaceTemplate : MonoBehaviour
 
     private ObstacleHolder obstacleHolder;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         BuildManager.Instance.OnObstacleChanged += SetNewSpawnObject;
     }
 
@@ -111,6 +114,7 @@ public class GridPlaceTemplate : MonoBehaviour
         {
             Instantiate(spawnableObject.actualObject, spawnTemplate.transform.position, spawnTemplate.transform.rotation);
             obstacleHolder.RemoveSpawnAmount();
+            audioSource.Play();
         }
     }
 }
