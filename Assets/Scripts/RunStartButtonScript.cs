@@ -8,6 +8,7 @@ public class RunStartButtonScript : MonoBehaviour
     [SerializeField] private AudioHandler audioHandler;
     [SerializeField] private ToggleStartButton toggleStartButton;
     [SerializeField] private ThiefAI thiefAI;
+    [SerializeField] private GameObject errorMessage;
 
    private List<ObstacleHolder> obstacles;
 
@@ -23,7 +24,12 @@ public class RunStartButtonScript : MonoBehaviour
             if(obstacle.spawnAmount != 0)
             {
                 // Todo spawn music error
-                // todo text
+                if (!errorMessage.active)
+                {
+                    errorMessage.SetActive(true);
+                    Invoke(nameof(SetErrorMessageNotActive), 2f);
+                }              
+
                 return;
             }
         }
@@ -31,5 +37,10 @@ public class RunStartButtonScript : MonoBehaviour
         audioHandler.OnPlayButtonAction();
         toggleStartButton.DisableButton();
         thiefAI.OnStartRun();
+    }
+
+    private void SetErrorMessageNotActive()
+    {
+        errorMessage.SetActive(false);
     }
 }

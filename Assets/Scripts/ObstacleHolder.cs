@@ -9,7 +9,10 @@ public class ObstacleHolder : MonoBehaviour
     [HideInInspector] public int spawnAmount;
 
     [SerializeField] public TMP_Text spawnAmountText;
-    [SerializeField] public GameObject visual;
+    [SerializeField] public GameObject activeVisual;
+    [SerializeField] public GameObject passiveVisual;
+
+    public bool isActive;
 
     private void Start()
     {
@@ -42,11 +45,18 @@ public class ObstacleHolder : MonoBehaviour
     public void RemoveSpawnAmount()
     {
         SetSpawnAmount(spawnAmount - 1);
+        if (!CanSpawn())
+        {
+            isActive = false;
+        }
+        TryUpdateViusal();
     }
 
     public void SetAsNewObstacle()
     {
         BuildManager.Instance.SetObstacleHolder(this);
+        isActive = true;
+        TryUpdateViusal();
     }
 
     public void SetSpawnAmount(int amount)
@@ -58,7 +68,16 @@ public class ObstacleHolder : MonoBehaviour
 
     public void TryUpdateViusal()
     {
-        visual.SetActive(spawnAmount != 0);
+        if (isActive)
+        {
+            activeVisual.SetActive(spawnAmount != 0);
+            passiveVisual.SetActive(false);
+        }
+        else
+        {
+            passiveVisual.SetActive(spawnAmount != 0);
+            activeVisual.SetActive(false);
+        }    
     }
 
     public void SetNewSpawnAmountText()

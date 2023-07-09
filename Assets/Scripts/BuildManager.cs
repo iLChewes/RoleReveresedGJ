@@ -30,6 +30,11 @@ public class BuildManager : MonoBehaviour
     }
     public void SetObstacleHolder(ObstacleHolder newObstacle)
     {
+        if(currentObstacleHolder != null)
+        {
+            currentObstacleHolder.isActive = false;
+            currentObstacleHolder.TryUpdateViusal();
+        }
         this.currentObstacleHolder = newObstacle;
         OnObstacleChanged?.Invoke(currentObstacleHolder);
     }
