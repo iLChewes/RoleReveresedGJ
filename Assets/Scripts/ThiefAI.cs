@@ -10,6 +10,7 @@ public class ThiefAI : MonoBehaviour
     [SerializeField] private Transform goal;
     [SerializeField] private ParticleSystem dust;
     [SerializeField] private AudioClip[] foodStepSounds;
+    [SerializeField] private float maxSpeed;
 
     private Seeker seeker;
     private AudioSource audioSource;
@@ -23,6 +24,8 @@ public class ThiefAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         aiPath = GetComponent<AIPath>();
         audioSource = GetComponent<AudioSource>();
+
+        aiPath.maxSpeed = maxSpeed;
     }
 
     public void OnStartRun()
@@ -41,6 +44,25 @@ public class ThiefAI : MonoBehaviour
         dust.Stop();
         aiPath.canMove = false;
         StopCoroutine(nameof(FoodSteps_Courtine));
+    }
+
+    public void AddMovementSpeed(float amount)
+    {
+        aiPath.maxSpeed += amount;
+        if(aiPath.maxSpeed > maxSpeed)
+        {
+            aiPath.maxSpeed = maxSpeed;
+        }
+        
+    }
+
+    public void RemoveMovementSpeed(float amount)
+    {
+        aiPath.maxSpeed -= amount;
+        if(aiPath.maxSpeed < 3 )
+        {
+            aiPath.maxSpeed = 3;
+        }
     }
 
 
