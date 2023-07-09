@@ -1438,7 +1438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5650443501294276294, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: goldCost
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5650443501294276294, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: obstacleHolder
@@ -1498,11 +1498,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8123409288179947580, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 8123409288179947580, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8147570573450315275, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: m_RootOrder
