@@ -953,7 +953,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Keep the Thief as long away from the chest as possible.
+  m_text: Keep the Thief away from the chest for as long as possible.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
   m_sharedMaterial: {fileID: 3074828514974314926, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
@@ -1704,7 +1704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164, y: -375}
+  m_AnchoredPosition: {x: 164, y: -400}
   m_SizeDelta: {x: 240.09692, y: 87.109344}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8748034364122916995
@@ -1735,11 +1735,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '3. You can only start the game (Next Button), when you have placed all
-    obstacles you own.
-
-
-'
+  m_text: 3. You can only start the game (Next Button), when all obstacles have been
+    placed.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
   m_sharedMaterial: {fileID: 3074828514974314926, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
@@ -2587,7 +2584,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 164, y: -320}
-  m_SizeDelta: {x: 240.09692, y: 87.109344}
+  m_SizeDelta: {x: 240.09692, y: 108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3188095827123433218
 CanvasRenderer:
@@ -2617,9 +2614,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '2. You get every round new obstacles to build .  You can also buy some.
-
-'
+  m_text: 2. Every round you get some free obstacles to place. Additional obstacles
+    can be bought.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
   m_sharedMaterial: {fileID: 3074828514974314926, guid: c2f49fe8c22d94f9a9e6cd06ad490155, type: 2}
@@ -2858,7 +2854,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164, y: -564}
+  m_AnchoredPosition: {x: 164, y: -590}
   m_SizeDelta: {x: 240.09692, y: 87.109344}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2897896515647842905
@@ -3027,7 +3023,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1. Build Obstacles (left hand side) to make it harder for the thief.
+  m_text: '1. Build Obstacles (left hand side) to make it harder for the Thief.
 
 '
   m_isRightToLeft: 0
@@ -3758,7 +3754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164, y: -470}
+  m_AnchoredPosition: {x: 164, y: -495}
   m_SizeDelta: {x: 240.09692, y: 87.109344}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3228006174895125270
@@ -3789,8 +3785,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '4. When the thief reaches the chest, he steals gold. The longer the thief
-    takes, the less he steals.
+  m_text: '4. When the Thief reaches the chest, he steals gold some of your gold.
+    The longer the thief takes, the more gold you build up.
 
 
 '
@@ -4907,6 +4903,22 @@ PrefabInstance:
     - target: {fileID: 3062670115397652272, guid: 624b0fd2b634d6246b2885b65e54689f, type: 3}
       propertyPath: m_fontSize
       value: 28.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205147194564620278, guid: 624b0fd2b634d6246b2885b65e54689f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205147194564620278, guid: 624b0fd2b634d6246b2885b65e54689f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205147194564620278, guid: 624b0fd2b634d6246b2885b65e54689f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205147194564620278, guid: 624b0fd2b634d6246b2885b65e54689f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4367591853690383598, guid: 624b0fd2b634d6246b2885b65e54689f, type: 3}
       propertyPath: goldCost
