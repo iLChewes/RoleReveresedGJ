@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3221,6 +3221,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: -----UI-----
       objectReference: {fileID: 0}
+    - target: {fileID: 1493758858862240733, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493758858862240733, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493758858862240733, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493758858862240733, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1670488292117874629, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -3383,6 +3399,22 @@ PrefabInstance:
       propertyPath: audioHandler
       value: 
       objectReference: {fileID: 919789106}
+    - target: {fileID: 6812923344749891038, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6812923344749891038, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6812923344749891038, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6812923344749891038, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7219829713042778224, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3403,6 +3435,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 919789106}
+    - target: {fileID: 8061793797292241621, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8123409288179947580, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3500,7 +3536,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9052336875959475961, guid: f2976f065e8df2648aa21a30158da896, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5345111777210506395, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       insertIndex: -1
