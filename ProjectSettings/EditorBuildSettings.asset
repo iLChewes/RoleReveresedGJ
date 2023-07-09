@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TilemapPlayground.unity
     guid: 48ddfe5df164a584e98aad78ede8b142
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestLevel.unity
     guid: 7e8c736a1340eda4e9e95d4ed5c5fac9
   - enabled: 1
