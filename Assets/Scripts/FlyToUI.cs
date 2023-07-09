@@ -8,7 +8,6 @@ using static UnityEngine.GraphicsBuffer;
 public class FlyToUI : MonoBehaviour
 {
     private GameObject flyTo;
-    private TMP_Text coinText;
 
     public void StartFlying()
     {
@@ -29,18 +28,11 @@ public class FlyToUI : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, worldPosition, step);
             yield return null;
         }
-        // Kann zu bugs führen 
-        // todo, über eine Manager steuern
-        var currentCoins = Int32.Parse(coinText.text);
-        currentCoins++;
-        coinText.text = currentCoins.ToString();
+
+        GoldManager.Instance.AddGold(1);
         Destroy(gameObject);
     }
 
-    public void SetCoinText(TMP_Text coinText)
-    {
-        this.coinText = coinText;
-    }
     public void SetFlyTo(GameObject flyTo)
     {
         this.flyTo = flyTo;

@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class GridPlaceTemplate : MonoBehaviour
 {
-    public SpawnableObject spawnableObject;
+    private SpawnableObject spawnableObject;
 
     public GameObject Player;
     public GameObject chest;
@@ -16,15 +16,44 @@ public class GridPlaceTemplate : MonoBehaviour
 
     private CheckIfTemplateCanSpawn spawnTemplate;
 
+    private ObstacleHolder obstacleHolder;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        spawnTemplate = Instantiate(spawnableObject.spawnTemplate);
+        //spawnTemplate = Instantiate(spawnableObject.spawnTemplate);
+    }
+
+    private void OnEnable()
+    {
+        BuildManager.Instance.OnObstacleChanged += SetNewSpawnObject;
+    }
+
+    private void OnDisable()
+    {
+        BuildManager.Instance.OnObstacleChanged -= SetNewSpawnObject;
+    }
+
+    public void SetNewSpawnObject(ObstacleHolder newObstacle)
+    {
+        obstacleHolder = newObstacle;
+        if(obstacleHolder == null)
+        {
+            spawnTemplate = null;
+            spawnableObject = null;
+        }
+        else
+        {
+            spawnTemplate = Instantiate(obstacleHolder.spawnableObject.spawnTemplate);
+            spawnableObject = obstacleHolder.spawnableObject;
+        }    
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(obstacleHolder == null) { return; }
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         GraphNode closestNode = AstarPath.active.GetNearest(worldPosition, NNConstraint.None).node;
@@ -42,7 +71,7 @@ public class GridPlaceTemplate : MonoBehaviour
             spawnTemplate.UpdatePath(Player.transform.position, chest.transform.position);
         }
 
-        if(spawnTemplate.CanSpawn && Input.GetMouseButtonDown(0))
+        if(spawnTemplate.CanSpawn && Input.GetMouseButtonDown(0) && obstacleHolder.CanSpawn())
         {
             SpawnObject();
         }
@@ -51,6 +80,11 @@ public class GridPlaceTemplate : MonoBehaviour
     private void SpawnObject()
     {
         if(spawnTemplate.CanSpawn)
+        {
             Instantiate(spawnableObject.actualObject, spawnTemplate.transform.position, spawnTemplate.transform.rotation);
+            obstacleHolder.spawnAmount -= 1;
+            obstacleHolder.SetNewSpawnAmountText();
+        }
+            
     }
 }

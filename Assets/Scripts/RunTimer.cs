@@ -12,6 +12,20 @@ public class RunTimer : MonoBehaviour
 
     private float currentTime;
 
+    public static RunTimer Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     private void OnEnable()
     {
         thiefAi.OnRunStarted += StartTimer;

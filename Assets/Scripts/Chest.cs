@@ -9,13 +9,10 @@ public class Chest : MonoBehaviour
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private TMP_Text coinText;
-    [SerializeField] private TMP_Text coinPlayerText;
     [SerializeField] private GameObject coinIcon;
     [SerializeField] private Transform thiefStartPosition;
     [SerializeField] private ToggleStartButton toggleButton;
     [SerializeField] private TimeTable timeTable;
-    [SerializeField] private RunTimer runTimer;
-    [SerializeField] private RoundManager roundManager;
 
     private ThiefAI thiefAI;
 
@@ -56,14 +53,12 @@ public class Chest : MonoBehaviour
     private IEnumerator SpawnCoinsToUI_Courtine()
     {
         var currentCoins = Int32.Parse(coinText.text);
-        Debug.Log(Camera.main.ScreenToWorldPoint(coinIcon.transform.position));
         for (int i = currentCoins; i > 0; i--)
         {
             var coin = Instantiate(coinPrefab, spawnPosition.position, Quaternion.identity);
             var flyTo = coin.GetComponent<FlyToUI>();
             
             flyTo.SetFlyTo(coinIcon);
-            flyTo.SetCoinText(coinPlayerText);
             flyTo.StartFlying();
 
             currentCoins--;
@@ -74,13 +69,13 @@ public class Chest : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
 
-        if (!roundManager.IsLastRound())
+        if (!RoundManager.Instance.IsLastRound())
         {
             StartCoroutine(nameof(MoveThiefToStartPosition_Courtine));
         }
         else
         {
-
+            // End Game
         }
     }
 
@@ -105,10 +100,10 @@ public class Chest : MonoBehaviour
 
         ResetGold();
         toggleButton.ActivateButton();
-        timeTable.CreateTimeCart(roundManager.GetCurrentRound(), runTimer.GetCurrentTime());
-        roundManager.NextRound();
+        timeTable.CreateTimeCart(RoundManager.Instance.GetCurrentRound(), RunTimer.Instance.GetCurrentTime());
+        RoundManager.Instance.NextRound();
 
-        if (roundManager.IsLastRound())
+        if (RoundManager.Instance.IsLastRound())
         {
             // Show Text Last Round
         }

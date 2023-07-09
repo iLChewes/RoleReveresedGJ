@@ -10,6 +10,21 @@ public class RoundManager : MonoBehaviour
 
     [SerializeField] private TMP_Text roundText;
 
+
+    public static RoundManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     private void Start()
     {
         SetRoundText();

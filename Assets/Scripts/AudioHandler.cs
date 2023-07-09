@@ -14,14 +14,6 @@ public class AudioHandler : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    private void Update()
-    {
-        // if (Input.GetMouseButtonDown(0))
-        // {
-        //     OnPlayBuildAction();
-        // }
-    }
-
     public void OnPlayButtonAction()
     {
         audioSource.PlayOneShot(buttonAction);
