@@ -146,7 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThiefStealAmount: 25
-  CoinBuildupPerSecond: 5
+  ThiefStealAmountPerLevel: 5
+  CoinBuildupPerSecond: 10
   CoinSpawnDelay: 0.05
   coinPrefab: {fileID: 1308595074498564276, guid: c838593f080b18d4ab66f6cee9040024, type: 3}
   spawnPosition: {fileID: 1589837295704674393}
