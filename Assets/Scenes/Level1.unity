@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1771,10 +1771,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7674954042003346478, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7909060951523510658, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 919789106}
+    - target: {fileID: 8061793797292241621, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8123409288179947580, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1874,6 +1882,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3779915281482668877, guid: f2976f065e8df2648aa21a30158da896, type: 3}
+    - {fileID: 9052336875959475961, guid: f2976f065e8df2648aa21a30158da896, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5345111777210506395, guid: f2976f065e8df2648aa21a30158da896, type: 3}
       insertIndex: 0

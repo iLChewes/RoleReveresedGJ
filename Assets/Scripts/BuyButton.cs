@@ -9,9 +9,12 @@ public class BuyButton : MonoBehaviour
     [SerializeField] private int goldCost;
     [SerializeField] private TMP_Text costText;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
         costText.text = goldCost.ToString();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -21,6 +24,7 @@ public class BuyButton : MonoBehaviour
         {
             obstacleHolder.AddSpawnAmount(1);
             GoldManager.Instance.RemoveGold(goldCost);
+            audioSource.Play();
         }
     }
 }
