@@ -13,6 +13,8 @@ public class Chest : MonoBehaviour
     [SerializeField] private Transform thiefStartPosition;
     [SerializeField] private ToggleStartButton toggleButton;
     [SerializeField] private TimeTable timeTable;
+    [SerializeField] private GameObject lastRoundText;
+    [SerializeField] private GameObject resultScreen;
 
     private ThiefAI thiefAI;
 
@@ -75,7 +77,8 @@ public class Chest : MonoBehaviour
         }
         else
         {
-            // End Game
+            timeTable.CreateTimeCart(RoundManager.Instance.GetCurrentRound(), RunTimer.Instance.GetCurrentTime());
+            ActivateResultScreen();
         }
     }
 
@@ -105,9 +108,20 @@ public class Chest : MonoBehaviour
 
         if (RoundManager.Instance.IsLastRound())
         {
-            // Show Text Last Round
+            lastRoundText.SetActive(true);
+            Invoke(nameof(DeActivateLastRoundText), 3f);
         }
 
+    }
+
+    public void ActivateResultScreen()
+    {
+        resultScreen.SetActive(true);
+    }
+
+    public void DeActivateLastRoundText()
+    {
+        lastRoundText.SetActive(false);
     }
 
     private void ResetGold()

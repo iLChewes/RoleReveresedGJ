@@ -8,7 +8,7 @@ public class TimeCart : MonoBehaviour
 {
     [SerializeField] private TMP_Text textField;
 
-    private float time;
+    public float time;
     private int round;
 
     public void SetRoundTime(float newTime, int newRound)
