@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SlowTower : MonoBehaviour
 {
+    [SerializeField] private float SlowDownAmount = 4.0f;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<ThiefAI>(out ThiefAI thiefAi))
         {
-            thiefAi.RemoveMovementSpeed(2f);
+            thiefAi.RemoveMovementSpeed(SlowDownAmount);
         }
     }
 
@@ -16,7 +16,7 @@ public class SlowTower : MonoBehaviour
     {
         if (collision.TryGetComponent<ThiefAI>(out ThiefAI thiefAi))
         {
-            thiefAi.AddMovementSpeed(2f);
+            thiefAi.AddMovementSpeed(SlowDownAmount);
         }
     }
 }

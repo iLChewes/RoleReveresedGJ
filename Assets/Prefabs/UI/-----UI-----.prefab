@@ -190,7 +190,7 @@ Transform:
   - {fileID: 1102055392565088166}
   - {fileID: 6253552150676190749}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1041604518497481033
 GameObject:
@@ -3977,6 +3977,10 @@ PrefabInstance:
       propertyPath: spawnAmount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2097699243600200200, guid: a31014cbced52ee48914090b44d67c32, type: 3}
+      propertyPath: m_Name
+      value: SlowTowerBuildButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4454789516484328088, guid: a31014cbced52ee48914090b44d67c32, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4085,7 +4089,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4697845155737008739, guid: a31014cbced52ee48914090b44d67c32, type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 1493758858862240733}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a31014cbced52ee48914090b44d67c32, type: 3}
