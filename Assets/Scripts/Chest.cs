@@ -25,7 +25,6 @@ public class Chest : MonoBehaviour
     [SerializeField] private GameObject lastRoundText;
     [SerializeField] private GameObject resultScreen;
 
-
     private ThiefAI thiefAI;
 
     private void Start()
@@ -34,11 +33,11 @@ public class Chest : MonoBehaviour
         thiefAI = RunTimer.Instance.thiefAi;
         thiefAI.OnRunStarted += StartCoinCountUp;
         thiefAI.OnRunFinished += StopCoinCountup;
-
     }
 
     private void OnDisable()
     {
+        if(thiefAI == null) return;
         thiefAI.OnRunStarted -= StartCoinCountUp;
         thiefAI.OnRunFinished -= StopCoinCountup;
     }
@@ -74,19 +73,16 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<ThiefAI>(out ThiefAI thiefAi))
-        {
-            this.thiefAI = thiefAi;
-            thiefAi.OnReachedGoal();
-            StartCoroutine(nameof(SpawnCoins_Courtine));
-        }
+        if(!collision.TryGetComponent(out ThiefAI thiefAi)) 
+            return;
+        this.thiefAI = thiefAi;
+        thiefAi.OnReachedGoal();
+        StartCoroutine(nameof(SpawnCoins_Courtine));
     }
 
     private IEnumerator SpawnCoins_Courtine()
     {
         var currentCoins = Int32.Parse(coinText.text);
-
-        int actualStealAmount = ThiefStealAmount + ThiefStealAmountPerLevel * (RoundManager.Instance.GetCurrentRound()-1);
         
         for (int i = 0; i < ThiefStealAmount; i++)
         {

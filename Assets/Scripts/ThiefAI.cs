@@ -33,7 +33,7 @@ public class ThiefAI : MonoBehaviour
         aiPath.maxSpeed = maxSpeed;
     }
 
-    public void Rückstoß(Vector2 dir)
+    public void RÃ¼ckstoÃŸ(Vector2 dir)
     {
         aiPath.canMove = false;
         rigi2D.AddForce(dir * powerKnockback, ForceMode2D.Impulse);
